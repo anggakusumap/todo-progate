@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const TodoForm = ({ addTodo }) =>
 {
@@ -13,7 +14,7 @@ const TodoForm = ({ addTodo }) =>
     const handleChangeTitle = (event) => {
         setTitle(event.target.value)
     }
-    
+
     return (
         <div style={styles.container}>
         <form
@@ -51,5 +52,9 @@ const styles = {
         fontSize: '16px',
     },
 }
+
+TodoForm.propTypes = {
+    addTodo: PropTypes.func.isRequired,
+};
 
 export default TodoForm

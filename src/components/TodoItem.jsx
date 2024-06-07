@@ -1,9 +1,7 @@
-import { useContext } from "react"
-import { TodoContext } from "../App"
+import PropTypes from 'prop-types';
 
-const TodoItem = ({ todo }) =>
+const TodoItem = ({ todo, toggleCompleted, deleteTodo }) =>
 {
-  const {toggleCompleted, deleteTodo} = useContext(TodoContext)
   const getTodoTitleStyle = () => {
     if (todo.completed === true) {
       return { textDecoration: 'line-through' }
@@ -20,6 +18,16 @@ const TodoItem = ({ todo }) =>
     </div>
   )
 }
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    title: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired,
+  toggleCompleted: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
+};
 
 const styles = {
   todoItem: {
