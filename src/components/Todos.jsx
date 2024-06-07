@@ -19,8 +19,6 @@ Todos.propTypes = {
       completed: PropTypes.bool.isRequired
     })
   ).isRequired,
-  toggleCompleted: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired
 };
 
 export default Todos
